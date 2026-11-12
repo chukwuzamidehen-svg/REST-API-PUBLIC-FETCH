@@ -1,9 +1,13 @@
 # REST API Public Fetch — Reflection
 
-This assignment helped me understand how an application can retrieve and process information from an external API instead of relying on data stored locally. I used Python's urllib library to request vehicle information from the NHTSA API, while asyncio allowed the request to run in a separate thread without blocking the application's event loop.
+# REST API Public Fetch — Reflection
 
-One unexpected challenge was Windows Security apparently blocking the installation of aiohttp. Instead of spending time troubleshooting the installation, I modified the code to use Python's built-in libraries. That showed me there can be multiple ways to accomplish the same task.
+This assignment helped me better understand how REST APIs can communicate with each other rather than just exchanging information with a user interface. I created a Flask application that retrieves vehicle information from the NHTSA public API, filters the JSON response, and makes the results available through a local REST endpoint.
 
-After retrieving the JSON response, I filtered the results using the GroupName field to display only records categorized as "Active Safety System." The program successfully returned 11 matching records, including ABS, traction control, and electronic stability control.
+Originally, my application displayed the filtered results directly in the terminal. After reviewing the reference document, I modified it to return JSON through Flask instead. That helped me understand the difference between retrieving data for a script and building an API that other applications can consume.
 
-I now better understand asynchronous execution, JSON filtering, and how third-party APIs support interoperability. I'd like to explore how these results could be displayed in a graphical interface instead of the terminal.
+One unexpected challenge was Windows Security apparently blocking an additional Python package installation. I worked around this by using Python's built-in libraries and reusing an existing Flask environment.
+
+The application successfully returned 11 records categorized as "Active Safety System." Seeing the HTTP 200 response in my terminal helped connect the concepts of GET requests, JSON filtering, and API responses.
+
+I'd like to explore how a JavaScript frontend could asynchronously retrieve and display these results.
